@@ -1,0 +1,182 @@
+.budget {
+    height: 10vh;
+}
+
+.total {
+    padding: 20px;
+}
+
+.total-savings {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.funds-container {
+    display: flex;
+}
+
+.left-funds-container {
+    width: 15vw;
+    height: 22vh;
+}
+
+.left-funds-content {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.addFunds {
+    border: none;
+    border-radius: 15px;
+    width: 10vw;
+    background-color: #2ec4b6;
+    padding: 15px 15px;
+}
+
+.newSavings {
+    border: 2px dotted white;
+    color: white;
+    border-radius: 15px;
+    width: 10vw;
+    background-color: transparent;
+    padding: 15px 15px;
+}
+
+.right-funds-container {
+    width: 20vw;
+    height: 22vh;
+}
+
+.savings-container {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    list-style-type: none;
+    gap: 5px;
+}
+
+.progress-name,
+.progress-amount {
+    margin: 0;
+}
+
+progress[value] {
+    appearance: none;
+    border: none;
+    width: 80%;
+    height: 20px;
+    border-radius: 20px;
+    overflow: hidden
+}
+
+progress[value]::-webkit-progress-bar {
+    background-color: whiteSmoke;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, .5) inset;
+}
+
+
+progress[value]::-webkit-progress-value {
+    background-color: green;
+}
+
+progress[value]::-webkit-progress-inner-element {
+    border-radius: 20px;
+}
+
+.budget-modal,
+.funds-modal {
+    color: var(--text);
+    background-color: #443C68;
+    width: 40vw;
+    height: 50vh;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 20px;
+}
+
+.budget-modal-content,
+.funds-modal-content {
+    padding: 20px;
+}
+
+.budget-form-container,
+.funds-form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 20px;
+}
+
+.budget-form,
+.funds-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 20px 0 0 0;
+}
+
+.budget-name,
+.budget-amount,
+.funds-name,
+.funds-amount {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid white;
+    border-radius: 20px;
+    padding: 10px;
+}
+
+.budget-name>input,
+.budget-amount>input,
+.funds-name>select,
+.funds-amount>input {
+    background-color: transparent;
+    color: white;
+    font-size: 18px;
+    border: none;
+    width: 100%;
+    outline: none;
+}
+
+option {
+    color: black;
+    background-color: white;
+}
+
+.budget-name>input:focus,
+.budget-amount>input:focus,
+.funds-name>select:focus,
+.funds-amount>input:focus {
+    outline: none;
+}
+
+::placeholder {
+    color: rgba(255, 255, 255, 0.493);
+}
+
+.budget-form-label,
+.funds-form-label {
+    font-size: 12px;
+}
+
+.budget-submit,
+.funds-submit {
+    width: 40%;
+    position: relative;
+    margin: 15px 0 0 0;
+    padding: 10px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    background-color: #2ec4b6;
+    color: white;
+}

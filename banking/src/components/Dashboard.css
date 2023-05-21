@@ -16,11 +16,13 @@ section {
 .buttons {
     width: 35vw;
     height: 10vh;
-    /* border: 1px solid white; */
+    border-top: 1px solid #F4EEE0;
+    border-bottom: 1px solid #F4EEE0;
+    padding: 3px 0;
 }
 
 .budgets {
     width: 35vw;
     height: 35vh;
-    border: 1px solid white;
+    /* border: 1px solid white; */
 }
