@@ -23,7 +23,7 @@ const Budget = () => {
 
     const handleBudgetSubmit = () => {
         if (goalName && goalAmount) {
-            const newBudget = { goalName, goalAmount };
+            const newBudget = { goalName, goalAmount: parseFloat(goalAmount) };
             const updatedBudgets = [...budgets, newBudget];
             setBudgets(updatedBudgets);
             localStorage.setItem('budgets', JSON.stringify(updatedBudgets));
@@ -52,6 +52,11 @@ const Budget = () => {
         }
     }, []);
 
+    const totalSavings = budgets.reduce(
+        (total, budget) => total + (budget.fundsGoalAmount || 0),
+        0
+    );
+
     return (
         <div className='budgets'>
             <div className="budget-container">
@@ -59,7 +64,7 @@ const Budget = () => {
                         <div className='total'>
                             <div className='total-savings'>
                                 <h3>Total Savings</h3>
-                                <h1>PHP 2000</h1>
+                                <h1>PHP {totalSavings.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</h1>
                             </div>
                         </div>
                     </div>
@@ -71,7 +76,7 @@ const Budget = () => {
                             </div>
                         </div>
                         <div className='right-funds-container'>
-                            <h4>Budgets</h4>
+                            <h4 className='right-funds'>Budgets</h4>
                             <Progress budgets={budgets} fundsGoalAmount={fundsGoalAmount} />
                         </div>
                     </div>
@@ -82,7 +87,8 @@ const Budget = () => {
                 onBudgetSubmit={handleBudgetSubmit}
                 goalName={goalName}
                 setGoalName={setGoalName}
-                goalAmount={goalAmount}                    setGoalAmount={setGoalAmount}
+                goalAmount={goalAmount}                    
+                setGoalAmount={setGoalAmount}
             />
             <AddFunds
                 isOpen={showFundsForm}
@@ -96,21 +102,26 @@ const Budget = () => {
 
 export default Budget
 
-const Progress = ({budgets}) => {
+const Progress = ({ budgets }) => {
     return (
         <div className='progress-container'>
             <ul className='savings-container'>
-                {budgets.map((budget, index) => (
+                {budgets.map((budget, index) => {
+                    const percentage = budget.fundsGoalAmount ? Math.floor((budget.fundsGoalAmount / budget.goalAmount) * 100) : 0;
+
+                return (
                     <li key={index} className='progress'>
-                        <p className="progress-name">{budget.goalName}</p>
-                        <p className='progress-amount'>Goal: PHP {budget.goalAmount}</p>
-                        <progress max={budget.goalAmount} value={budget.fundsGoalAmount ? budget.fundsGoalAmount : 0} className="savings-progress"></progress>
+                        <p className='progress-name'>{budget.goalName}</p>
+                        <p className='progress-amount'>Goal: PHP {budget.goalAmount.toLocaleString('en-PH', {minimumFractionDigits: 2 })}</p>
+                        <p className='progress-percentage'>{percentage}%</p>
+                        <progress max={budget.goalAmount} value={budget.fundsGoalAmount ? budget.fundsGoalAmount : 0} className='savings-progress'></progress>
                     </li>
-                ))}
+                );
+                })}
             </ul>
         </div>
-    )
-}
+  );
+};
 
 const AddFunds = ({isOpen, onClose, budgets, onAddFunds}) => {
     const [fundsGoalName, setFundsGoalName] = useState('');

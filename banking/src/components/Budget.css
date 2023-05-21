@@ -50,13 +50,18 @@
 .right-funds-container {
     width: 20vw;
     height: 20vh;
-    margin: 0 20px;
+    margin-right: 20px;
+}
+
+.right-funds {
+    text-decoration: underline;
+    margin-right: 10px;
 }
 
 .progress-container {
     max-height: 18vh;
     overflow-y: auto;
-    scrollbar-color: #f0f0f0 #d4d4d4;
+    scrollbar-color: white #6D5D6E;
     scrollbar-width: thin;
 }
 
@@ -109,6 +114,10 @@ progress[value]::-webkit-progress-value {
 
 progress[value]::-webkit-progress-inner-element {
     border-radius: 20px;
+}
+
+.progress-percentage {
+    margin: 0;
 }
 
 .budget-modal,
