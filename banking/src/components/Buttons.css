@@ -1,0 +1,199 @@
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+    display: none;
+}
+
+h4 {
+    margin: 0;
+    font-weight: 100;
+}
+
+.buttons-container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.circular-button {
+    color: white;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    padding: 0;
+    border: none;
+    background-color: #624F82;
+}
+
+.form-container {
+    padding: 20px;
+}
+
+.modal {
+    color: white;
+    background-color: #443C68;
+    width: 40vw;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 20px;
+}
+
+.modal-small {
+    height: 20vh
+}
+
+.modal-large {
+    height: 65vh;
+}
+
+.modal:focus {
+    outline: none;
+}
+
+h2 {
+    text-align: center;
+    margin: 0 0 20px 0;
+}
+
+.close {
+    color: white;
+    border: none;
+    background-color: transparent;
+    font-size: 28px;
+    position: fixed;
+    right: 20px;
+    top: 25px;
+}
+
+.modalForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.modalForm>label {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 24px;
+    margin: 0 50px;
+}
+
+.transForm {
+    border: none;
+    border-bottom: 2px solid white;
+    background-color: transparent;
+    color: var(--text);
+    outline: none;
+}
+
+::placeholder {
+    color: rgba(255, 255, 255, 0.493);
+}
+
+.submit-button,
+.continueButton {
+    width: 40%;
+    position: relative;
+    margin: 30px 0 0 0;
+    padding: 10px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    background-color: #2ec4b6;
+    color: white;
+}
+
+.transferOption {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.internalTransfer,
+.externalTransfer {
+    font-size: 50px;
+    color: white;
+    background-color: transparent;
+    outline: none;
+    border: none;
+}
+
+.transferText {
+    font-size: 12px;
+    margin: 0;
+}
+
+.transferForm {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.bankSelection,
+.transferName,
+.transferNumber,
+.transferAmount {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#bankNames,
+#accountName,
+#accountNumber,
+#transferAmount {
+    border: none;
+    background-color: transparent;
+    color: white;
+    border-bottom: 1px solid white;
+    width: 18vw;
+    font-size: 18px;
+}
+
+#bankNames,
+#accountName,
+#accountNumber,
+#transferAmount:focus {
+    outline: none;
+}
+
+#bankNames>option {
+    color: black;
+}
+
+.addFavorite {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+}
+
+.toggleOff {
+    background: #dbdad8;
+    width: 40px;
+    height: 20px;
+    border-radius: 10px;
+    cursor: pointer;
+
+}
+
+.toggleBoxOff {
+    width: 20px;
+    height: 18px;
+    border-radius: 50%;
+    background: rgb(107, 107, 107);
+    margin: 1px;
+}
+
+.transferNote-text {
+    text-align: center;
+}

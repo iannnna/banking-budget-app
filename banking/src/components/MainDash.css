@@ -1,0 +1,121 @@
+.mainDash-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+}
+
+.mainDash-left-container {
+    width: 15vw;
+    height: 25vh;
+}
+
+.mainDash-left-content {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.mainDash-right-container {
+    width: 20vw;
+    height: 25vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mainDash-card-container {
+    position: relative;
+    height: 20vh;
+    width: 18vw;
+    border-radius: 10px;
+    background-color: #5C527F;
+}
+
+.mainDash-card-details {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    gap: 10px;
+}
+
+.mainDash-logo {
+    display: flex;
+    align-items: center;
+}
+
+.mainDash-logo img {
+    transform: scale(0.60);
+}
+
+.mainDash-card-number-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.mainDash-card-number {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+}
+
+.mainDash-network-img {
+    display: flex;
+    align-items: center;
+}
+
+img.network-img {
+    width: 30px;
+}
+
+.mainDash-validity {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin: 0 2em 0 0;
+}
+
+.mainDash-valid-text {
+    font-size: 8px;
+    margin: 0;
+}
+
+.mainDash-valid-date {
+    font-size: 12px;
+    margin: 0;
+}
+
+.mainDash-bottom-div {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    padding: 0 1em;
+}
+
+.mainDash-card-balance {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+}
+
+h3,
+h1 {
+    margin: 0;
+}
+
+.wallet-balance-text {
+    font-size: 12px;
+}
+
+.balance {
+    font-size: 14px;
+}
+
+.eye-icon {
+    border: none;
+    background-color: transparent;
+    color: white;
+}

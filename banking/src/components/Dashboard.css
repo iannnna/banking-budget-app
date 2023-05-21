@@ -1,0 +1,26 @@
+section {
+    width: 35vw;
+    height: 70vh;
+    background-color: #4F4557;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.mainDash {
+    width: 35vw;
+    height: 25vh;
+    /* border: 1px solid white; */
+}
+
+.buttons {
+    width: 35vw;
+    height: 10vh;
+    /* border: 1px solid white; */
+}
+
+.budgets {
+    width: 35vw;
+    height: 35vh;
+    border: 1px solid white;
+}
