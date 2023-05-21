@@ -111,9 +111,11 @@ const Progress = ({ budgets }) => {
 
                 return (
                     <li key={index} className='progress'>
-                        <p className='progress-name'>{budget.goalName}</p>
+                        <div className='progress-name-container'>
+                            <p className='progress-name'>{budget.goalName}</p>
+                            <p className='progress-percentage'>{percentage}%</p>
+                        </div>
                         <p className='progress-amount'>Goal: PHP {budget.goalAmount.toLocaleString('en-PH', {minimumFractionDigits: 2 })}</p>
-                        <p className='progress-percentage'>{percentage}%</p>
                         <progress max={budget.goalAmount} value={budget.fundsGoalAmount ? budget.fundsGoalAmount : 0} className='savings-progress'></progress>
                     </li>
                 );

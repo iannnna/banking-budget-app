@@ -10,19 +10,17 @@ section {
 .mainDash {
     width: 35vw;
     height: 25vh;
-    /* border: 1px solid white; */
 }
 
 .buttons {
     width: 35vw;
     height: 10vh;
-    border-top: 1px solid #F4EEE0;
-    border-bottom: 1px solid #F4EEE0;
+    border-top: 2px solid #393646;
+    border-bottom: 2px solid #393646;
     padding: 3px 0;
 }
 
 .budgets {
     width: 35vw;
     height: 35vh;
-    /* border: 1px solid white; */
 }

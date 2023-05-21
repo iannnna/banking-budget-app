@@ -88,6 +88,12 @@
     max-height: 18vh;
 }
 
+.progress-name-container {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+}
+
 .progress-name,
 .progress-amount {
     margin: 0;
