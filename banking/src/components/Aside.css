@@ -1,7 +1,6 @@
 aside {
     width: 15vw;
     height: 70vh;
-    /* background-color: #4F4557; */
 }
 
 .aside-container {
@@ -23,6 +22,7 @@ aside {
 .aside-dashboard {
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 img.logo {

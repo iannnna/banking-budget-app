@@ -63,7 +63,6 @@ const Budget = () => {
                             </div>
                         </div>
                     </div>
-                    <h4>Budgets</h4>
                     <div className='funds-container'>
                         <div className='left-funds-container'>
                             <div className='left-funds-content'>
@@ -72,6 +71,7 @@ const Budget = () => {
                             </div>
                         </div>
                         <div className='right-funds-container'>
+                            <h4>Budgets</h4>
                             <Progress budgets={budgets} fundsGoalAmount={fundsGoalAmount} />
                         </div>
                     </div>
@@ -98,15 +98,17 @@ export default Budget
 
 const Progress = ({budgets}) => {
     return (
-        <ul className='savings-container'>
-            {budgets.map((budget, index) => (
-                <li key={index} className='progress'>
-                    <p className="progress-name">{budget.goalName}</p>
-                    <progress max={budget.goalAmount} value={budget.fundsGoalAmount ? budget.fundsGoalAmount : 0} className="savings-progress"></progress>
-                    <p className='progress-amount'>Goal: PHP {budget.goalAmount}</p>
-                </li>
-            ))}
-        </ul>
+        <div className='progress-container'>
+            <ul className='savings-container'>
+                {budgets.map((budget, index) => (
+                    <li key={index} className='progress'>
+                        <p className="progress-name">{budget.goalName}</p>
+                        <p className='progress-amount'>Goal: PHP {budget.goalAmount}</p>
+                        <progress max={budget.goalAmount} value={budget.fundsGoalAmount ? budget.fundsGoalAmount : 0} className="savings-progress"></progress>
+                    </li>
+                ))}
+            </ul>
+        </div>
     )
 }
 
