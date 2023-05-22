@@ -1,9 +1,19 @@
 import React, { useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons'
 import './Signup.css'
 
+const eye = <FontAwesomeIcon icon={faEye} />;
+const eyeSlash = <FontAwesomeIcon icon={faEyeSlash} />;
+
 const Signup = ({onSignupSuccess, onLoginQuestion}) => {
+    const [showPassword, setShowPassword] = useState(false);
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+
+    const handleShowPassClick = () => {
+        setShowPassword(!showPassword);
+    }
 
     const handleUsernameChange = (event) => {
         setUsername(event.target.value);
@@ -52,8 +62,9 @@ const Signup = ({onSignupSuccess, onLoginQuestion}) => {
                         </div>
                         <div className='signup-password-container'>
                             <label htmlFor="signup-passoword">Password</label>
-                            <input type="text" id='signup-password' name='signup-password' value={password}
+                            <input type={showPassword ? 'text' : 'password'}  id='signup-password' name='signup-password' value={password}
                 onChange={handlePasswordChange}/>
+                            <button className='show-password' onClick={handleShowPassClick}>{showPassword ? eye : eyeSlash}</button>
                         </div>
                         <button className='login-button' onClick={handleSignup}>Sign Up</button>
                         <div className='login-question'>

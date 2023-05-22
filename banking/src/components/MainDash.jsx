@@ -1,11 +1,12 @@
 import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faEyeSlash } from '@fortawesome/free-solid-svg-icons'
+import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons'
 import networkImg from '../assets/mastercard.png'
 import MainDashLogo from '../assets/astro-bank-aside.png'
 import './MainDash.css'
 
-const eye = <FontAwesomeIcon icon={faEyeSlash} />
+const eye = <FontAwesomeIcon icon={faEye} />;
+const eyeSlash = <FontAwesomeIcon icon={faEyeSlash} />;
 
 function getGreeting() {
   const now = new Date();
@@ -64,7 +65,7 @@ const MainDash = ({balance}) => {
                                         <h1>PHP{formattedBalance}</h1>
                                     </div>
                                 </div>
-                                <button className='eye-icon' onClick={handleEyeIconClick}>{eye}</button>
+                                <button className='eye-icon' onClick={handleEyeIconClick}>{showCardNumber ? eye : eyeSlash}</button>
                             </div>
                         </div>
                     </div>

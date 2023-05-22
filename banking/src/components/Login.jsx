@@ -1,9 +1,19 @@
 import React, { useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons'
 import './Login.css'
 
+const eye = <FontAwesomeIcon icon={faEye} />;
+const eyeSlash = <FontAwesomeIcon icon={faEyeSlash} />;
+
 const Login = ({onLoginSuccess, onSignupQuestion}) => {
+    const [showPassword, setShowPassword] = useState(false);
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+
+    const handleShowPassClick = () => {
+        setShowPassword(!showPassword);
+    }
 
     const handleUsernameChange = (event) => {
         setUsername(event.target.value);
@@ -46,8 +56,10 @@ const Login = ({onLoginSuccess, onSignupQuestion}) => {
                         </div>
                         <div className='login-password-container'>
                             <label htmlFor="login-passoword">Password</label>
-                            <input type="text" id='login-password' name='login-password' value={password}
-                onChange={handlePasswordChange} />
+                            <div className='login-password-input'>
+                                <input type={showPassword ? 'text' : 'password'} id='login-password' name='login-password' value={password} onChange={handlePasswordChange} />
+                                <button className='show-password' onClick={handleShowPassClick}>{showPassword ? eye : eyeSlash}</button>
+                            </div>
                         </div>
                         <button className='login-button' onClick={handleLogin}>Login</button>
                         <div className='signup-question'>

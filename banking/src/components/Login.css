@@ -69,3 +69,13 @@
     cursor: pointer;
     color: wheat;
 }
+
+.show-password {
+    background-color: transparent;
+    border: none;
+    color: white;
+    position: absolute;
+    right: 23%;
+    top: 50%;
+    transform: translateY(-50%);
+}
