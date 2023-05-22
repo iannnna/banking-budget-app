@@ -14,8 +14,23 @@ const Signup = ({onSignupSuccess, onLoginQuestion}) => {
     };
 
     const handleSignup = () => {
-        localStorage.setItem('username', username);
-        localStorage.setItem('password', password);
+        const existingUsers = JSON.parse(localStorage.getItem('users')) || [];
+
+        const isUsernameExists = existingUsers.some((user) => user.username === username);
+
+        if (isUsernameExists) {
+        alert('Username already exists. Please choose a different username.');
+        return;
+        }
+
+        const newUser = {
+        username,
+        password,
+        };
+
+        existingUsers.push(newUser);
+        localStorage.setItem('users', JSON.stringify(existingUsers));
+
         alert('Signup successful!');
         onSignupSuccess();
     };
