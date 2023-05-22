@@ -16,8 +16,14 @@ const Login = ({onLoginSuccess, onSignupQuestion}) => {
     const handleLogin = (event) => {
         event.preventDefault();
 
-        if (username === 'admin123' && password === 'admin123') {
-            onLoginSuccess();
+        const storedUsers = JSON.parse(localStorage.getItem('users')) || [];
+
+        const matchedUser = storedUsers.find(
+        (user) => user.username === username && user.password === password
+        );
+
+        if (matchedUser) {
+        onLoginSuccess();
         } else {
         alert('Invalid username or password');
         }
