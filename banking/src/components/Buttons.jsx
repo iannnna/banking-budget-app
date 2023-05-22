@@ -198,6 +198,10 @@ const TransferModal = ({isOpen, onClose, onInputChange, onSubmit, value, buttonT
         setShowForm(true);
     };
 
+    useEffect(() => {
+        setShowForm(false);
+    }, [isOpen]);
+
     return(
         <ReactModal isOpen={isOpen} onRequestClose={onClose} className={modalClassName} shouldCloseOnOverlayClick={false}>
             <div className='form-container'>
