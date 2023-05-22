@@ -22,6 +22,14 @@ function App() {
     setIsSignupVisible(true);
   };
 
+  const handleSignupSuccess = () => {
+    setIsSignupVisible(false);
+  };
+
+  const handleLoginQuestion = () => {
+    setIsSignupVisible(false);
+  }
+
   return (
     <main className="main">
       {!isLoggedIn && !isSignupVisible && (
@@ -37,7 +45,7 @@ function App() {
       )}
       {isSignupVisible && (
         <div className="signup-page">
-          <Signup />
+          <Signup onSignupSuccess={handleSignupSuccess} onLoginQuestion={handleLoginQuestion}/>
         </div>
       )}
     </main>
