@@ -155,7 +155,7 @@ const Progress = ({ budgets, onDeleteProgress }) => {
                 })}
             </ul>
         </div>
-  );
+    );
 };
 
 const AddFunds = ({isOpen, onClose, budgets, onAddFunds}) => {
@@ -178,6 +178,13 @@ const AddFunds = ({isOpen, onClose, budgets, onAddFunds}) => {
             onClose();
             }
     };
+
+    useEffect(() => {
+        if (!isOpen) {
+            setFundsGoalName('');
+            setFundsGoalAmount('');
+        }
+    }, [isOpen]);
 
 
     return(
