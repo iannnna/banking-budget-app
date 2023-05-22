@@ -225,9 +225,9 @@ const TransferModal = ({isOpen, onClose, onInputChange, onSubmit, value, buttonT
                                 <option value="WestEast">WestEast Bank</option>
                             </select>
                         </div>
-                        <div className='transferName hidden'>
+                        <div className='transferName'>
                             <label htmlFor="accountName"><h3>Recipient's Account Name:</h3></label>
-                                <input type="text"  id='accountName' name='accountName'/>
+                                <input type="text" id='accountName' name='accountName'/>
                         </div>
                         <div className='transferNumber'>
                             <label htmlFor="accountNumber"><h3>Recipient's Account Number:</h3></label>
