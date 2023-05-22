@@ -3,7 +3,11 @@ import AstroLogo from '../assets/astro-bank-aside.png'
 import DashIcon from '../assets/dashboard-aside.png'
 import LogoutIcon from '../assets/logout.png'
 
-const Aside = () => {
+const Aside = ({onLogout}) => {
+    const handleLogout = () => {
+        onLogout();
+    };
+
     return (
         <aside>
             <main className='aside-container'>
@@ -20,7 +24,7 @@ const Aside = () => {
                     </div>
                 </div>
                 <div className='aside-bottom-container'>
-                    <div className='aside-logout'>
+                    <div className='aside-logout'onClick={handleLogout}>
                         <img src={LogoutIcon} alt="Logout" className='logout' />
                         <p>Logout</p>
                     </div>

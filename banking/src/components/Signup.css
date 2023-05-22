@@ -1,4 +1,4 @@
-.login-main-page {
+.signup-main-page {
     width: 35vw;
     height: 45vh;
     position: fixed;
@@ -9,26 +9,26 @@
     border-radius: 20px;
 }
 
-.login-form {
+.signup-form {
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
 
-.login-form-container {
+.signup-form-container {
     padding: 25px;
 }
 
-.login-username-container,
-.login-password-container {
+.signup-username-container,
+.signup-password-container {
     display: flex;
     flex-direction: column;
     gap: 5px;
     align-items: center;
 }
 
-#login-username,
-#login-password {
+#signup-username,
+#signup-password {
     border: none;
     background-color: transparent;
     color: white;
@@ -38,12 +38,12 @@
     text-align: center;
 }
 
-#login-username,
-#login-password:focus {
+#signup-username,
+#signup-password:focus {
     outline: none;
 }
 
-.login-button {
+.signup-button {
     width: 40%;
     position: relative;
     margin: 30px 0 0 0;
@@ -57,13 +57,13 @@
     color: white;
 }
 
-.signup-question {
+.login-question {
     display: flex;
     flex-direction: row;
     justify-content: center;
 }
 
-.signup-question button {
+.login-question button {
     border: none;
     background-color: transparent;
     cursor: pointer;
