@@ -68,6 +68,24 @@ const Buttons = ({updateBalance}) => {
         setButtonText('');
     };
 
+    const handleTransferSubmit = () => {
+        const recipientBank = document.getElementById('bankNames').value;
+        const recipientAccountName = document.getElementById('accountName').value;
+        const recipientAccountNumber = document.getElementById('accountNumber').value;
+        const amount = parseFloat(value);
+
+        if (!recipientBank || !recipientAccountName || !recipientAccountNumber || isNaN(amount)) {
+            return;
+        }
+        
+        if (!isNaN(amount)) {
+        updateBalance(-amount);
+        }
+        setValue('');
+        setButtonText('');
+        handleTransferClose()
+    };
+
     useEffect(() => {
         const form = document.getElementById('depositForm');
         if(form) {
@@ -113,7 +131,7 @@ const Buttons = ({updateBalance}) => {
                 isOpen={showTransferForm}
                 onClose={handleTransferClose}
                 onInputChange={handleInputChange}
-                onSubmit={handleDeductSubmit}
+                onSubmit={handleTransferSubmit}
                 value={value}
                 buttonText={buttonText}
             />
@@ -192,7 +210,8 @@ const TransferModal = ({isOpen, onClose, onInputChange, onSubmit, value, buttonT
                     <div className='transferForm' onSubmit={preventDefault}>
                         <div className='bankSelection'>
                             <label htmlFor="bankNames"><h3>Recipient Bank:</h3></label>
-                            <select name="bankNames" id="bankNames">
+                            <select name="bankNames" id="bankNames" defaultValue="">
+                                <option value="" disabled>Choose Bank</option>
                                 <option value="Asia">Asia UniBank</option>
                                 <option value="BPL">BPL/BPL Family Savings Bank</option>
                                 <option value="Lamp">Lamp Bank</option>
