@@ -6,7 +6,7 @@ import './Budget.css'
 
 const erase = <FontAwesomeIcon icon={faTrash} />
 
-const Budget = () => {
+const Budget = ({updateBalance }) => {
     const [showFundsForm, setShowFundsForm] = useState(false)
     const [showBudgetForm, setShowBudgetForm] = useState(false);
     const [budgets, setBudgets] = useState([]);
@@ -53,7 +53,10 @@ const Budget = () => {
                 return budget;
             }
             if (budget.goalName === selectedBudget.goalName) {
-                return { ...budget, fundsGoalAmount };
+                const newFundsGoalAmount = parseFloat(fundsGoalAmount);
+                const amountToDeduct = newFundsGoalAmount - (budget.fundsGoalAmount || 0);
+                updateBalance(-amountToDeduct);
+                return { ...budget, fundsGoalAmount: newFundsGoalAmount };
             }
             return budget;
         });

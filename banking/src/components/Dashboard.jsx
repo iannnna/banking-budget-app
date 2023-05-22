@@ -24,7 +24,7 @@ const Dashboard = () => {
         <section>
             <MainDash balance={balance} />
             <Buttons updateBalance={updateBalance} />
-            <Budget />
+            <Budget updateBalance={updateBalance}/>
         </section>
     )
 }
