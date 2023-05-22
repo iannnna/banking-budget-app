@@ -167,7 +167,10 @@ const AddFunds = ({isOpen, onClose, budgets, onAddFunds}) => {
     };
 
     const handleGoalAmountChange = (event) => {
-        setFundsGoalAmount(event.target.value);
+        const amount = event.target.value;
+        if (!isNaN(amount) && amount <= 1000000) {
+            setFundsGoalAmount(amount);
+        }
     };
 
     const handleSubmit = (event) => {
@@ -245,7 +248,10 @@ const AddBudget = ({isOpen, onClose, onBudgetSubmit, goalName, setGoalName, goal
     };
 
     const handleGoalAmountChange = (event) => {
-        setGoalAmount(event.target.value);
+        const amount = event.target.value;
+            if (!isNaN(amount) && amount <= 1000000) {
+                setGoalAmount(amount);
+            }
     };
 
     const budgetSubmitLabel = goalName ? `Add ${goalName}` : 'Add';
