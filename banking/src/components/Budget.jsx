@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTrash } from '@fortawesome/free-solid-svg-icons'
 import ReactModal from 'react-modal';
 import './Budget.css'
+
+const erase = <FontAwesomeIcon icon={faTrash} />
 
 const Budget = () => {
     const [showFundsForm, setShowFundsForm] = useState(false)
@@ -9,6 +13,7 @@ const Budget = () => {
     const [goalName, setGoalName] = useState('');
     const [goalAmount, setGoalAmount] = useState('');
     const [fundsGoalAmount, setFundsGoalAmount] = useState(0);
+    const [deletedProgressIndex, setDeletedProgressIndex] = useState(-1);
 
 
     const handleFundsClick = () => {setShowFundsForm(true)};
@@ -33,12 +38,24 @@ const Budget = () => {
         setShowBudgetForm(false);
     };
 
-    const handleAddFunds = (selectedBudget, fundsGoalAmount) => {
-        const updatedBudgets = budgets.map((budget) => {
-        if (budget.goalName === selectedBudget.goalName) {
-            return { ...budget, fundsGoalAmount };
+    const handleDeletedProgress = () => {
+        if (deletedProgressIndex >= 0) {
+            const updatedBudgets = budgets.filter((_, index) => index !== deletedProgressIndex);
+            setBudgets(updatedBudgets);
+            localStorage.setItem('budgets', JSON.stringify(updatedBudgets));
+            setDeletedProgressIndex(-1);
         }
-        return budget;
+    };
+
+    const handleAddFunds = (selectedBudget, fundsGoalAmount, progressIndex) => {
+        const updatedBudgets = budgets.map((budget, index) => {
+            if (index === progressIndex) {
+                return budget;
+            }
+            if (budget.goalName === selectedBudget.goalName) {
+                return { ...budget, fundsGoalAmount };
+            }
+            return budget;
         });
         setBudgets(updatedBudgets);
         localStorage.setItem('budgets', JSON.stringify(updatedBudgets));
@@ -56,6 +73,10 @@ const Budget = () => {
         (total, budget) => total + (budget.fundsGoalAmount || 0),
         0
     );
+
+    useEffect(() => {
+        handleDeletedProgress();
+        }, [deletedProgressIndex]);
 
     return (
         <div className='budgets'>
@@ -77,7 +98,7 @@ const Budget = () => {
                         </div>
                         <div className='right-funds-container'>
                             <h4 className='right-funds'>Budgets</h4>
-                            <Progress budgets={budgets} fundsGoalAmount={fundsGoalAmount} />
+                            <Progress budgets={budgets} fundsGoalAmount={fundsGoalAmount} onDeleteProgress={setDeletedProgressIndex} />
                         </div>
                     </div>
             </div>
@@ -102,7 +123,7 @@ const Budget = () => {
 
 export default Budget
 
-const Progress = ({ budgets }) => {
+const Progress = ({ budgets, onDeleteProgress }) => {  
     return (
         <div className='progress-container'>
             <ul className='savings-container'>
@@ -111,12 +132,17 @@ const Progress = ({ budgets }) => {
 
                 return (
                     <li key={index} className='progress'>
-                        <div className='progress-name-container'>
-                            <p className='progress-name'>{budget.goalName}</p>
-                            <p className='progress-percentage'>{percentage}%</p>
+                        <div className='progress-main-content'>
+                            <div className='progress-name-container'>
+                                <p className='progress-name'>{budget.goalName}</p>
+                                <p className='progress-percentage'>{percentage}%</p>
+                            </div>
+                            <p className='progress-amount'>Goal: PHP {budget.goalAmount.toLocaleString('en-PH', {minimumFractionDigits: 2 })}</p>
+                            <progress max={budget.goalAmount} value={budget.fundsGoalAmount ? budget.fundsGoalAmount : 0} className='savings-progress'></progress>
                         </div>
-                        <p className='progress-amount'>Goal: PHP {budget.goalAmount.toLocaleString('en-PH', {minimumFractionDigits: 2 })}</p>
-                        <progress max={budget.goalAmount} value={budget.fundsGoalAmount ? budget.fundsGoalAmount : 0} className='savings-progress'></progress>
+                        <div className='progress-delete'>
+                            <button className='progress-delete-icon' onClick={() => onDeleteProgress(index)}>{erase}</button>
+                        </div>
                     </li>
                 );
                 })}

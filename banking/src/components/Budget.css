@@ -88,6 +88,17 @@
     max-height: 18vh;
 }
 
+.progress {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    border-bottom: 1px solid #393646;
+}
+
+.progress-main-content {
+    flex: 2;
+}
+
 .progress-name-container {
     display: flex;
     justify-content: center;
@@ -124,6 +135,14 @@ progress[value]::-webkit-progress-inner-element {
 
 .progress-percentage {
     margin: 0;
+}
+
+.progress-delete-icon {
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
 }
 
 .budget-modal,
