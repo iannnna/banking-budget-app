@@ -7,7 +7,6 @@ import './Buttons.css'
 const deposit = <FontAwesomeIcon icon={faPlus} />
 const withdraw = <FontAwesomeIcon icon={faMinus} />
 const transfer = <FontAwesomeIcon icon={faRightLeft} />
-const withinTransfer = <FontAwesomeIcon icon={faMoneyBillTransfer} />
 const otherTransfer = <FontAwesomeIcon icon={faBuildingColumns} />
 
 const Buttons = ({updateBalance}) => {
@@ -246,12 +245,6 @@ const TransferModal = ({isOpen, onClose, onInputChange, onSubmit, value, buttonT
                     ) : (
 
                     <div className='transferOption'>
-                        <div className='internalTransfer-container'>
-                            <button className='internalTransfer'>
-                                {withinTransfer}
-                                <p className='transferText'>Within Bank</p>
-                            </button>
-                        </div>
                         <div className='externalTransfer-container'>
                             <button className='externalTransfer'onClick={handleExternalTransferClick}>
                                 {otherTransfer}

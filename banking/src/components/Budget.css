@@ -237,3 +237,7 @@ option {
     background-color: #2ec4b6;
     color: white;
 }
+
+button {
+    cursor: pointer;
+}

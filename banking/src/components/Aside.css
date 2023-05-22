@@ -25,6 +25,10 @@ aside {
     align-items: center;
 }
 
+.aside-logout {
+    cursor: pointer;
+}
+
 img.logo {
     transform: scale(0.75);
     align-self: center;

@@ -118,4 +118,5 @@ h1 {
     border: none;
     background-color: transparent;
     color: white;
+    cursor: pointer;
 }
