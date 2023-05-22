@@ -186,6 +186,12 @@ const AddFunds = ({isOpen, onClose, budgets, onAddFunds}) => {
         }
     }, [isOpen]);
 
+    const formattedFundsGoalAmount = parseFloat(fundsGoalAmount).toLocaleString(undefined, {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2,
+    });
+
+    const fundsSubmitLabel = fundsGoalAmount ? `Confirm PHP ${formattedFundsGoalAmount}` : 'Confirm';
 
     return(
         <ReactModal isOpen={isOpen} onRequestClose={onClose} className="funds-modal" shouldCloseOnOverlayClick={false}>
@@ -213,7 +219,7 @@ const AddFunds = ({isOpen, onClose, budgets, onAddFunds}) => {
                                 <label htmlFor="funds-goal-amount" className='funds-form-label'>Amount</label>
                                 <input type="number" name='funds-goal-amount' id='funds-goal-amount' placeholder='Enter goal amount' value={fundsGoalAmount} onChange={handleGoalAmountChange}/>
                             </div>
-                            <button className='funds-submit' onClick={handleSubmit}>Confirm</button>
+                            <button className='funds-submit' onClick={handleSubmit}> {fundsSubmitLabel}</button>
                         </div>
                     </div>
             </div>
@@ -242,6 +248,8 @@ const AddBudget = ({isOpen, onClose, onBudgetSubmit, goalName, setGoalName, goal
         setGoalAmount(event.target.value);
     };
 
+    const budgetSubmitLabel = goalName ? `Add ${goalName}` : 'Add';
+
     return(
         <ReactModal isOpen={isOpen} onRequestClose={handleButtonClick} className="budget-modal" shouldCloseOnOverlayClick={false}>
             <div className='budget-modal-content'>
@@ -263,7 +271,7 @@ const AddBudget = ({isOpen, onClose, onBudgetSubmit, goalName, setGoalName, goal
                             <label htmlFor="goal-amount" className='budget-form-label'>Goal Amount</label>
                             <input type="number" name='goal-amount' id='goal-amount' placeholder='Enter goal amount' value={goalAmount} onChange={handleGoalAmountChange}/>
                         </div>
-                        <button className='budget-submit' onClick={handleSubmit}>Confirm</button>
+                        <button className='budget-submit' onClick={handleSubmit}>{budgetSubmitLabel}</button>
                     </div>
                 </div>
             </div>
