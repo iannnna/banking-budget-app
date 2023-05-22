@@ -32,7 +32,7 @@ const Login = ({onLoginSuccess, onSignupQuestion}) => {
             <div className='login-form-container'>
                 <h2 className='login-intro'>Login</h2>
                 <div className='login-form-container'>
-                    <form className='login-form'>
+                    <div className='login-form'>
                         <div className='login-username-container'>
                             <label htmlFor="login-username">Username</label>
                             <input type="text" id='login-username' name='login-username' value={username}
@@ -48,7 +48,7 @@ const Login = ({onLoginSuccess, onSignupQuestion}) => {
                             <p>Not registered yet?</p>
                             <button onClick={handleSignupQuestion}>Signup here</button>
                         </div>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>
