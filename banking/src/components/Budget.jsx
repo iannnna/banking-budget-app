@@ -57,8 +57,9 @@ const Budget = ({updateBalance }) => {
                 return budget;
             }
             if (budget.goalName === selectedBudget.goalName) {
-                const newFundsGoalAmount = parseFloat(fundsGoalAmount);
-                const amountToDeduct = newFundsGoalAmount - (budget.fundsGoalAmount || 0);
+                const previousFundsGoalAmount = budget.fundsGoalAmount || 0;
+                const newFundsGoalAmount = parseFloat(fundsGoalAmount) + previousFundsGoalAmount;
+                const amountToDeduct = newFundsGoalAmount - previousFundsGoalAmount;
                 updateBalance(-amountToDeduct);
                 return { ...budget, fundsGoalAmount: newFundsGoalAmount };
             }
