@@ -59,6 +59,13 @@ const Budget = ({updateBalance }) => {
             if (budget.goalName === selectedBudget.goalName) {
                 const previousFundsGoalAmount = budget.fundsGoalAmount || 0;
                 const newFundsGoalAmount = parseFloat(fundsGoalAmount) + previousFundsGoalAmount;
+                const progressGoalAmount = budget.goalAmount || 0;
+
+                if (newFundsGoalAmount > progressGoalAmount) {
+                    alert("Amount exceeded goal amount");
+                    return budget;
+                }
+
                 const amountToDeduct = newFundsGoalAmount - previousFundsGoalAmount;
                 updateBalance(-amountToDeduct);
                 return { ...budget, fundsGoalAmount: newFundsGoalAmount };

@@ -56,6 +56,7 @@ const Buttons = ({updateBalance}) => {
         }
         setValue('');
         setButtonText('');
+        handleDepositClose()
     };
 
     const handleDeductSubmit = () => {
@@ -65,6 +66,7 @@ const Buttons = ({updateBalance}) => {
         }
         setValue('');
         setButtonText('');
+        handleWithdrawClose()
     };
 
     const handleTransferSubmit = () => {
