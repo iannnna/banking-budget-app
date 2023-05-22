@@ -5,7 +5,10 @@ import Budget from "./Budget"
 import './Dashboard.css'
 
 const Dashboard = () => {
-    const [balance, setBalance] = useState(0);
+    const [balance, setBalance] = useState(() => {
+        const savedBalance = localStorage.getItem('walletBalance');
+        return savedBalance ? parseFloat(savedBalance) : 0;
+    });
 
     useEffect(() => {
         const savedBalance = localStorage.getItem('walletBalance');

@@ -1,11 +1,10 @@
 import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPiggyBank, faEyeSlash } from '@fortawesome/free-solid-svg-icons'
+import { faEyeSlash } from '@fortawesome/free-solid-svg-icons'
 import networkImg from '../assets/mastercard.png'
 import MainDashLogo from '../assets/astro-bank-aside.png'
 import './MainDash.css'
 
-const logo = <FontAwesomeIcon icon={faPiggyBank} />
 const eye = <FontAwesomeIcon icon={faEyeSlash} />
 
 function getGreeting() {

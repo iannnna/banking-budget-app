@@ -40,6 +40,10 @@ const Budget = ({updateBalance }) => {
 
     const handleDeletedProgress = () => {
         if (deletedProgressIndex >= 0) {
+            const deletedBudget = budgets[deletedProgressIndex];
+            const amountToAdd = deletedBudget.fundsGoalAmount || 0;
+            updateBalance(amountToAdd);
+
             const updatedBudgets = budgets.filter((_, index) => index !== deletedProgressIndex);
             setBudgets(updatedBudgets);
             localStorage.setItem('budgets', JSON.stringify(updatedBudgets));
@@ -101,7 +105,7 @@ const Budget = ({updateBalance }) => {
                         </div>
                         <div className='right-funds-container'>
                             <h4 className='right-funds'>Budgets</h4>
-                            <Progress budgets={budgets} fundsGoalAmount={fundsGoalAmount} onDeleteProgress={setDeletedProgressIndex} />
+                            <Progress budgets={budgets} fundsGoalAmount={fundsGoalAmount} onDeleteProgress={setDeletedProgressIndex} updateBalance={updateBalance} />
                         </div>
                     </div>
             </div>
