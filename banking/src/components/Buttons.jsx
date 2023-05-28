@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import ReactModal from 'react-modal';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlus, faMinus, faRightLeft, faMoneyBillTransfer, faBuildingColumns } from '@fortawesome/free-solid-svg-icons'
+import { faPlus, faMinus, faRightLeft, faBuildingColumns } from '@fortawesome/free-solid-svg-icons'
 import './Buttons.css'
 
 const deposit = <FontAwesomeIcon icon={faPlus} />
